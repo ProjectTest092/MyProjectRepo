@@ -306,11 +306,6 @@
           <i class="fa-solid fa-cart-shopping"></i>
           <a href="Cart.html" target="_blank">Cart</a>
         </div>
-
-        <div class="nav-login underline">
-          <i class="fa-solid fa-user"></i>
-          <a href="Login.html" target="_blank" id="Login">Login/Sign Up</a>
-        </div>
       </div>
     </header>
 
@@ -468,29 +463,6 @@
           document.body.removeChild(toast);
         }, 3000);
       }
-
-      // Check login status on page load
-      function checkLoginStatus() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        const username = localStorage.getItem('username');
-        
-        const loginLink = document.getElementById('Login');
-        
-        if (isLoggedIn && username) {
-          loginLink.textContent = username;
-          loginLink.href = '#';
-          loginLink.onclick = function(e) {
-            e.preventDefault();
-            // Handle logout
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('username');
-            window.location.reload();
-          };
-        }
-      }
-
-      // Call checkLoginStatus when page loads
-      document.addEventListener('DOMContentLoaded', checkLoginStatus);
     </script>
   </body>
 </html>
