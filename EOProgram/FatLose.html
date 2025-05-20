@@ -239,6 +239,109 @@ footer {
   background-color: #222;
 }
 
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('photos/bg.jpg');
+  background-size: cover;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  font-family: 'Anton', sans-serif;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: var(--secondary-color);
+}
+
+.img_container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.image-card {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-10px);
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.content-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+}
+
+.content-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 10px;
+}
+
+.content-card ul li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content-card ul li i {
+  color: var(--secondary-color);
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .img_container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .content-card {
+    margin: 10px;
+  }
+}
+
     </style>
   </head>
 
@@ -267,45 +370,75 @@ footer {
     <!-- Main Container -->
 
     <main>
+      <div class="hero-section">
+        <h1>Fat Loss Program</h1>
+        <p class="subtitle">Transform your body with our proven fat loss techniques</p>
+      </div>
+
       <aside class="img_container">
-        <img src="Photos/img7.jpg" />
-        <img src="Photos/img8.jpg" />
-        <img src="Photos/img9.jpg" />
+        <div class="image-card">
+          <img src="Photos/img7.jpg" alt="Fat Loss Exercise 1" />
+          <p class="image-caption">Cardio Training</p>
+        </div>
+        <div class="image-card">
+          <img src="Photos/img8.jpg" alt="Fat Loss Exercise 2" />
+          <p class="image-caption">HIIT Workouts</p>
+        </div>
+        <div class="image-card">
+          <img src="Photos/img9.jpg" alt="Fat Loss Exercise 3" />
+          <p class="image-caption">Nutrition Planning</p>
+        </div>
       </aside>
 
-    <div class="container">
-      <section id="Benefits">
-        <h2>Benefits of FatLose:</h2>
-        <ul>
-          <li>
-            Improves Heart Health – Reduces the risk of heart disease and high
-            blood pressure.
-          </li>
-          <li>
-            Boosts Metabolism – Helps your body burn calories more efficiently.
-          </li>
-          <li>
-            Enhances Physical Performance – Increases stamina and mobility.
-          </li>
-          <li>
-            Improves Sleep Quality – Helps regulate sleep patterns for better
-            rest.
-          </li>
-          <li>
-            Supports Mental Health – Reduces stress, anxiety, and depression.
-          </li>
-        </ul>
-      </section>
+      <div class="container">
+        <section id="Benefits" class="content-card">
+          <h2>Benefits of Fat Loss</h2>
+          <ul>
+            <li>
+              <i class="fas fa-heart"></i>
+              Improves Heart Health – Reduces the risk of heart disease and high blood pressure.
+            </li>
+            <li>
+              <i class="fas fa-fire"></i>
+              Boosts Metabolism – Helps your body burn calories more efficiently.
+            </li>
+            <li>
+              <i class="fas fa-running"></i>
+              Enhances Physical Performance – Increases stamina and mobility.
+            </li>
+            <li>
+              <i class="fas fa-moon"></i>
+              Improves Sleep Quality – Helps regulate sleep patterns for better rest.
+            </li>
+            <li>
+              <i class="fas fa-brain"></i>
+              Supports Mental Health – Reduces stress, anxiety, and depression.
+            </li>
+          </ul>
+        </section>
 
-      <section id="Tips">
-        <h2>FatLose Tips:</h2>
-        <li>Eat More Protein – Helps control hunger and preserve muscle mass.</li>
-        <li>Reduce Sugar & Processed Foods – Avoid excess calories and unhealthy fats.</li>
-        <li>Increase Fiber Intake – Keeps you full longer and aids digestion.</li>
-        <li>Strength Training & Cardio – Builds muscle and boosts metabolism.</li>
-      </section>
-    </div>
-
+        <section id="Tips" class="content-card">
+          <h2>Fat Loss Tips</h2>
+          <ul>
+            <li>
+              <i class="fas fa-drumstick-bite"></i>
+              Eat More Protein – Helps control hunger and preserve muscle mass.
+            </li>
+            <li>
+              <i class="fas fa-ban"></i>
+              Reduce Sugar & Processed Foods – Avoid excess calories and unhealthy fats.
+            </li>
+            <li>
+              <i class="fas fa-seedling"></i>
+              Increase Fiber Intake – Keeps you full longer and aids digestion.
+            </li>
+            <li>
+              <i class="fas fa-dumbbell"></i>
+              Strength Training & Cardio – Builds muscle and boosts metabolism.
+            </li>
+          </ul>
+        </section>
+      </div>
     </main>
 
     <footer>

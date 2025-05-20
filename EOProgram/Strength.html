@@ -238,6 +238,138 @@ footer {
   padding: 10px 0;
   background-color: #222;
 }
+
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('photos/bg.jpg');
+  background-size: cover;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  font-family: 'Anton', sans-serif;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: var(--secondary-color);
+}
+
+.img_container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.image-card {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-10px);
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.content-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+}
+
+.content-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 10px;
+}
+
+.exercise {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.exercise:hover {
+  transform: translateX(10px);
+}
+
+.exercise h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.exercise h3 i {
+  color: var(--secondary-color);
+}
+
+.exercise p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.content-card ul li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content-card ul li i {
+  color: var(--secondary-color);
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .img_container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .content-card {
+    margin: 10px;
+  }
+}
     </style>
   </head>
 
@@ -264,43 +396,70 @@ footer {
     </header>
 
     <main>
+      <div class="hero-section">
+        <h1>Strength Training</h1>
+        <p class="subtitle">Build power and muscle with our expert strength training programs</p>
+      </div>
+
       <aside class="img_container">
-        <img src="Photos/img1.jpg" />
-        <img src="Photos/img2.jpg" alt="" />
-        <img src="Photos/img3.jpg" alt="" srcset="" />
+        <div class="image-card">
+          <img src="Photos/img1.jpg" alt="Strength Training 1" />
+          <p class="image-caption">Power Lifting</p>
+        </div>
+        <div class="image-card">
+          <img src="Photos/img2.jpg" alt="Strength Training 2" />
+          <p class="image-caption">Muscle Building</p>
+        </div>
+        <div class="image-card">
+          <img src="Photos/img3.jpg" alt="Strength Training 3" />
+          <p class="image-caption">Core Strength</p>
+        </div>
       </aside>
 
       <div class="container">
-        <section id="exercises">
+        <section id="exercises" class="content-card">
           <h2>Strength Training Exercises</h2>
           <div class="exercise">
-            <h3>Squats</h3>
-            <p>
-              Squats are a great way to build strength in your legs and core.
-            </p>
+            <h3><i class="fas fa-dumbbell"></i> Squats</h3>
+            <p>A fundamental compound exercise that builds lower body strength and core stability.</p>
           </div>
           <div class="exercise">
-            <h3>Deadlifts</h3>
-            <p>Deadlifts target your back, glutes, and hamstrings.</p>
+            <h3><i class="fas fa-weight-hanging"></i> Deadlifts</h3>
+            <p>A powerful full-body exercise that targets your back, glutes, and hamstrings.</p>
           </div>
           <div class="exercise">
-            <h3>Bench Press</h3>
-            <p>
-              The bench press is a classic exercise for building upper body
-              strength.
-            </p>
+            <h3><i class="fas fa-bolt"></i> Bench Press</h3>
+            <p>The classic upper body exercise for building chest, shoulder, and tricep strength.</p>
           </div>
         </section>
 
-        <section id="tips">
+        <section id="tips" class="content-card">
           <h2>Training Tips</h2>
           <ul>
-            <li>Always warm up before starting your workout.</li>
-            <li>Focus on form to prevent injuries.</li>
-            <li>Gradually increase weights to challenge your muscles.</li>
-            <li>Stay hydrated and maintain a balanced diet.</li>
-            <li>Perform control rep With proper form.</li>
-            <li>Start exercises with light weight</li>
+            <li>
+              <i class="fas fa-fire"></i>
+              Always warm up before starting your workout.
+            </li>
+            <li>
+              <i class="fas fa-check-double"></i>
+              Focus on form to prevent injuries.
+            </li>
+            <li>
+              <i class="fas fa-chart-line"></i>
+              Gradually increase weights to challenge your muscles.
+            </li>
+            <li>
+              <i class="fas fa-tint"></i>
+              Stay hydrated and maintain a balanced diet.
+            </li>
+            <li>
+              <i class="fas fa-sync"></i>
+              Perform controlled reps with proper form.
+            </li>
+            <li>
+              <i class="fas fa-feather"></i>
+              Start exercises with light weight.
+            </li>
           </ul>
         </section>
       </div>
