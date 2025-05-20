@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="Cart.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap" />
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="nav-logo border">
+        <a href="/Project.html" class="logo">FitGym</a>
+      </div>
+
+      <div class="nav-home underline">
+        <i class="fa-solid fa-house"></i>
+        <a href="#">Home</a>
+      </div>
+
+      <div class="nav-contact underline">
+        <a href="#">Contact Us</a>
+      </div>
+
+      <div class="nav-about underline">
+        <a href="#">About Us</a>
+      </div>
+
+      <!-- <div class="nav-cart underline">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <a href="#">Cart</a>
+      </div> -->
+
+      <div class="nav-login underline">
+        <i class="fa-solid fa-user"></i>
+        <a href="Login.html" target="_blank">Login/Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+
+    <!-- If shopping cart is empty -->
+    <div class="empty-msg-container">
+      <h2>Your FitGym Cart is empty</h2>
+      <p>Your shopping cart is waiting. Give it purpose – fill it with resistance bands, Yoga Mat, Protein powder and
+        more.</p>
+      <p>Continue shopping on the <a href="/Project.html" id="span">FitGym.in</a> homepage.</p>
+    </div>
+
+    <!-- If any item add to cart -->
+    <div class="msg-container">
+      <h2>Shopping Cart</h2>
+      <div class="container">
+        <h1>Your Shopping Cart</h1>
+        <div id="cart-items"></div>
+        <p id="total-price">Total Price: ₹0</p>
+        <div class="button-container">
+          <button id="checkout-button">Checkout</button>
+          <button id="clear-cart-button">Clear Cart</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h2>About Us</h2>
+        <p>
+          FitGym is dedicated to helping you achieve your fitness goals with
+          state-of-the-art equipment and expert trainers.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#membership">Membership</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h2>Contact Us</h2>
+        <p>Email: info@fitlifegym.com</p>
+        <p>Phone: (123) 456-7890</p>
+      </div>
+      <!-- <div class="footer-section">
+        <h2>Follow Us</h2>
+        <ul class="social-media">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div> -->
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 FitGym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- <script>
+    // Retrieve cart items from local storage
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+
+    let totalPrice = 0;
+
+    // Display cart items
+    cartItems.forEach(item => {
+      const itemElement = document.createElement('div');
+      itemElement.innerHTML = `<h2>${item.title}</h2><p>Price: ₹${item.price}</p>`;
+      cartItemsContainer.appendChild(itemElement);
+      totalPrice += item.price;
+    });
+
+    // Update total price
+    totalPriceElement.innerText = `Total Price: ₹${totalPrice}`;
+
+    // Checkout button functionality
+    document.getElementById('checkout-button').addEventListener('click', () => {
+      alert('Proceeding to checkout...');
+      // Implement checkout logic here
+    });
+  </script> -->
+  <script src="Cart.js"></script>
+</body>
+
+</html>
