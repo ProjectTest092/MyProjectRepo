@@ -69,6 +69,33 @@
 
     .nav-cart {
       color: whitesmoke;
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--secondary-color);
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      display: none;
+    }
+
+    .cart-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .cart-icon.animate {
+      animation: cartBounce 0.5s ease;
+    }
+
+    @keyframes cartBounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
     }
 
     .nav-login {
@@ -304,7 +331,8 @@
       </div>
 
       <div class="nav-cart underline">
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-cart-shopping cart-icon"></i>
+        <span class="cart-count">0</span>
         <a href="Cart.html" target="_blank">Cart</a>
       </div>
     </div>
@@ -447,6 +475,17 @@
 
   <script src="Tabs.js"></script>
   <script>
+    // Initialize cart count from localStorage
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartCount = document.querySelector('.cart-count');
+      cartCount.textContent = cart.length;
+      cartCount.style.display = cart.length > 0 ? 'block' : 'none';
+    }
+
+    // Call on page load
+    updateCartCount();
+
     function addToCart(button, price) {
       // Get the product block
       const productBlock = button.closest('.product-block');
@@ -472,6 +511,16 @@
 
       // Save the updated cart back to local storage
       localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Update cart count
+      updateCartCount();
+
+      // Animate cart icon
+      const cartIcon = document.querySelector('.cart-icon');
+      cartIcon.classList.add('animate');
+      setTimeout(() => {
+        cartIcon.classList.remove('animate');
+      }, 500);
 
       // Show a toast notification
       const toast = document.createElement('div');
