@@ -132,17 +132,46 @@ document.getElementById('checkout-button').addEventListener('click', () => {
     }
     
     const button = document.getElementById('checkout-button');
+    const container = document.querySelector('.container');
     button.disabled = true;
     button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
     
-    // Simulate checkout process
+    // Add checkout animation
+    container.classList.add('checkout-animation');
+    
+    // Simulate checkout process with multiple steps
     setTimeout(() => {
-        alert('Proceeding to checkout...');
-        localStorage.removeItem('cart');
-        updateCartDisplay();
-        button.disabled = false;
-        button.innerHTML = 'Checkout';
-    }, 1500);
+        // First step - items start disappearing
+        const cartItems = document.querySelectorAll('.cart-item');
+        cartItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('checkout-item-animation');
+            }, index * 200);
+        });
+
+        // Second step - show success message
+        setTimeout(() => {
+            container.innerHTML = `
+                <div class="checkout-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h2>Order Placed Successfully!</h2>
+                    <p>Thank you for shopping with FitGym</p>
+                    <p>Your order will be processed shortly</p>
+                </div>
+            `;
+            container.classList.remove('checkout-animation');
+            container.classList.add('checkout-success-animation');
+            
+            // Clear the cart
+            localStorage.removeItem('cart');
+            cartItems.length = 0;
+            
+            // Reset after 3 seconds
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
+        }, cartItems.length * 200 + 500);
+    }, 500);
 });
 
 // Clear cart button functionality
